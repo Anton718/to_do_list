@@ -24,8 +24,18 @@ function create_task() {
         input_checkbox.style.cursor = 'pointer'
         const p = document.createElement('p')
         p.textContent = getInput()
-        p.style.width = '500px'
-        p.style.textAlign = 'left'
+    p.style.width = '500px'
+    p.style.textAlign = 'left'
+    input_checkbox.addEventListener('input', cross_line)
+    function cross_line() {
+        if (input_checkbox.checked) {
+             p.style.textDecoration = 'line-through'
+        } else
+        {
+            p.style.textDecoration = 'none'
+        }
+        
+    }
         const button_cross = document.createElement('button')
         button_cross.textContent = '❌'
         button_cross.style.border = 'none'
@@ -37,7 +47,7 @@ function create_task() {
             button.removeEventListener(); 
         }
         if (input !== 0) { list_delete.style.display = 'flex'; }
-        
+    
 btn_del_all.addEventListener('click', del_all)
 function del_all() {
     div.innerHTML = '';
