@@ -7,11 +7,11 @@ const btn_del_complete_tasks = document.getElementById('btn_del_complete_tasks')
 
 input.addEventListener('input', getInput)
 function getInput() {
-    const val = document.querySelector('input').value;
+    const val = document.querySelector('input').value.trim();
     return val;
 }
 
-    
+
 button.addEventListener('click', create_task)
 
 
@@ -47,7 +47,9 @@ function create_task() {
     div_task.style.justifyContent = 'space-between'
         if (input.value === "") {
             button.removeEventListener(); 
+           
         }
+    
         if (input !== 0) { list_delete.style.display = 'flex'; }
     
 btn_del_all.addEventListener('click', del_all)
@@ -71,4 +73,5 @@ function del_all() {
     return div
 
 }
+
 
