@@ -11,9 +11,9 @@ function getInput() {
     return val;
 }
 
-
     
 button.addEventListener('click', create_task)
+
 
 function create_task() {
         
@@ -33,7 +33,7 @@ function create_task() {
         button_cross.style.cursor = 'pointer'
         div_task.style.display = 'flex'
     div_task.style.justifyContent = 'space-between'
-        if (input === "") {
+        if (input.value === "") {
             button.removeEventListener(); 
         }
         if (input !== 0) { list_delete.style.display = 'flex'; }
