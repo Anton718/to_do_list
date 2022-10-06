@@ -29,10 +29,12 @@ function create_task() {
     input_checkbox.addEventListener('input', cross_line)
     function cross_line() {
         if (input_checkbox.checked) {
-             p.style.textDecoration = 'line-through'
+            p.style.textDecoration = 'line-through'; p.style.opacity = '0.5';
+            input_checkbox.style.backgroundColor = '#7749F8';
         } else
         {
-            p.style.textDecoration = 'none'
+            p.style.textDecoration = 'none'; p.style.opacity = '1'; 
+            input_checkbox.style.backgroundColor = 'none';
         }
         
     }
