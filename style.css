@@ -32,3 +32,7 @@ h1 {
   line-height: 21px;
   cursor: pointer;
 }
+
+p {
+  word-wrap: break-word;
+}
