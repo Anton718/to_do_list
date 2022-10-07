@@ -7,7 +7,7 @@ const btn_del_complete_tasks = document.getElementById('btn_del_complete_tasks')
 
 input.addEventListener('input', getInput)
 function getInput() {
-    const val = document.querySelector('input').value.trim();
+    const val = document.querySelector('input').value;
     return val;
 }
 
