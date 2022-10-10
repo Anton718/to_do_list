@@ -12,6 +12,7 @@ function getInput() {
 }
 
 
+
 button.addEventListener('click', create_task)
 
 
@@ -23,7 +24,7 @@ function create_task() {
         input_checkbox.type = 'checkbox'
         input_checkbox.style.cursor = 'pointer'
         const p = document.createElement('p')
-        p.textContent = getInput()
+    p.textContent = getInput();
     p.style.width = '500px'
     p.style.textAlign = 'left'
     input_checkbox.addEventListener('input', cross_line)
@@ -66,12 +67,13 @@ function del_all() {
             div_task.outerHTML = ""
     }  
     
+    
         div_task.append(input_checkbox)
         div_task.append(p)
         div_task.append(button_cross)
         div.append(div_task)
     return div
-
 }
+
 
 
