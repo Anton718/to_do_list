@@ -8,8 +8,10 @@ const btn_del_complete_tasks = document.getElementById('btn_del_complete_tasks')
 input.addEventListener('input', getInput)
 function getInput() {
     const val = document.querySelector('input').value;
+    
     return val;
 }
+
 
 button.addEventListener('click', create_task)
 
@@ -21,7 +23,7 @@ function create_task() {
     input_checkbox.type = 'checkbox'
     input_checkbox.style.cursor = 'pointer'
     const p = document.createElement('p')
-    p.textContent = getInput()
+    p.textContent = getInput() 
     p.style.width = '500px'
     p.style.textAlign = 'left'
     input_checkbox.addEventListener('input', cross_line)
@@ -62,15 +64,32 @@ function create_task() {
     function del_cross() {
         div_task.outerHTML = ""
     }
-    input.value =''
+    
+    input.value = ''
+    
+    
     
     div_task.append(input_checkbox)
     div_task.append(p)
     div_task.append(button_cross)
     div.append(div_task)
+
+     get_storage()
+
     return div
+        
+    }
+
+function get_storage() {
+   
+        let arr = [];
+        let tasks = document.querySelectorAll('p')
+        
+        tasks.forEach(function add_task(p) {
+            arr.push(p.textContent)
+        })
+        localStorage.setItem('list', JSON.stringify(arr))
+        let arr2 = JSON.parse(localStorage.getItem('list'))
+            
+    
 }
-
-
-
-
