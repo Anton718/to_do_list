@@ -7,23 +7,34 @@ const btn_del_complete_tasks = document.getElementById('btn_del_complete_tasks')
 
 input.addEventListener('input', getInput)
 function getInput() {
+    get_storage()
     const val = document.querySelector('input').value;
-    
-    return val;
+    // if (localStorage.getItem('list')) {
+    //     let arr2 = [];
+    //     arr2 = JSON.parse(localStorage.getItem('list'));
+    //     arr2.forEach((elem) => arr2[elem])
+    // } else {
+        return val;
+    // }
 }
 
+button.addEventListener('click', function () {
+    create_task(getInput())
+})
 
-button.addEventListener('click', create_task)
+window.onload = function () {
+    JSON.parse(localStorage.getItem('list')).forEach(create_task)
+}
 
-
-function create_task() {
+function create_task(text) {
     const div_task = document.createElement('div')
     div_task.style.padding = '24px'
     const input_checkbox = document.createElement('input')
     input_checkbox.type = 'checkbox'
     input_checkbox.style.cursor = 'pointer'
     const p = document.createElement('p')
-    p.textContent = getInput() 
+    p.textContent = text
+    
     p.style.width = '500px'
     p.style.textAlign = 'left'
     input_checkbox.addEventListener('input', cross_line)
@@ -44,10 +55,9 @@ function create_task() {
     button_cross.style.cursor = 'pointer'
     div_task.style.display = 'flex'
     div_task.style.justifyContent = 'space-between'
-    if (input.value === "") {
-        button.removeEventListener();
-           
-    }
+    // if (input.value === "") {
+    //     button.removeEventListener();      
+    // }
     
     if (input !== 0) { list_delete.style.display = 'flex'; }
     
@@ -63,6 +73,7 @@ function create_task() {
     button_cross.addEventListener('click', del_cross)
     function del_cross() {
         div_task.outerHTML = ""
+        get_storage()
     }
     
     input.value = ''
@@ -74,7 +85,8 @@ function create_task() {
     div_task.append(button_cross)
     div.append(div_task)
 
-     get_storage()
+    get_storage()
+   
 
     return div
         
@@ -82,14 +94,12 @@ function create_task() {
 
 function get_storage() {
    
-        let arr = [];
+    let arr = [];
         let tasks = document.querySelectorAll('p')
         
         tasks.forEach(function add_task(p) {
             arr.push(p.textContent)
         })
-        localStorage.setItem('list', JSON.stringify(arr))
-        let arr2 = JSON.parse(localStorage.getItem('list'))
-            
-    
+    localStorage.setItem('list', JSON.stringify(arr));
 }
+
