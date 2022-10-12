@@ -70,6 +70,7 @@ function create_task(text) {
     btn_del_complete_tasks.addEventListener('click', del_task)
     function del_task() {
         if (input_checkbox.checked) { div_task.outerHTML = "" }
+        get_storage()
     }
     button_cross.addEventListener('click', del_cross)
     function del_cross() {
