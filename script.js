@@ -55,9 +55,6 @@ function create_task(text) {
     button_cross.style.cursor = 'pointer'
     div_task.style.display = 'flex'
     div_task.style.justifyContent = 'space-between'
-    // if (input.value === "") {
-    //     button.removeEventListener();      
-    // }
     
     if (input !== 0) { list_delete.style.display = 'flex'; }
     
@@ -80,15 +77,12 @@ function create_task(text) {
     
     input.value = ''
     
-    
-    
     div_task.append(input_checkbox)
     div_task.append(p)
     div_task.append(button_cross)
     div.append(div_task)
 
     get_storage()
-   
 
     return div
         
