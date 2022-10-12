@@ -65,6 +65,7 @@ function create_task(text) {
     function del_all() {
         div.innerHTML = '';
         list_delete.style.display = 'none'
+        get_storage()
     }
     btn_del_complete_tasks.addEventListener('click', del_task)
     function del_task() {
